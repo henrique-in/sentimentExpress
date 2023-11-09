@@ -1,13 +1,16 @@
 #import "AppDelegate.h"
 
 #import <React/RCTBundleURLProvider.h>
-
+#import "RNSplashScreen.h" 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   self.moduleName = @"SentimentAnalysis";
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  bool didFinish=[super application:application didFinishLaunchingWithOptions:launchOptions];
+  
+  [RNSplashScreen show];
+  return didFinish;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
