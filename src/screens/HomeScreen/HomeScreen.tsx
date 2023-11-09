@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Alert,
   Image,
@@ -14,6 +14,7 @@ import {colors} from '../../theme';
 import {Button} from '../../components/Button/Button';
 import {getSentiment} from '../../repositories/sentimentAnalysis';
 import {ModalResult} from '../../components/ModalResult/ModalResult';
+import {getMeaningToken} from '../../repositories/getToken';
 
 const illustrationImage = require('../../assets/img/illustration.png');
 export function HomeScreen() {
@@ -25,7 +26,8 @@ export function HomeScreen() {
   const getAnalysis = async () => {
     setLoading(true);
     try {
-      const data = await getSentiment(text);
+      const token = await getMeaningToken();
+      const data = await getSentiment(text, token);
       setScore(data.score_tag);
       setIsVisible(true);
     } catch (error) {

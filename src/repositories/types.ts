@@ -119,3 +119,9 @@ export interface Status {
   credits: string;
   remaining_credits: string;
 }
+
+export type TokenAPI = MeaningTokenAPI[];
+
+export interface MeaningTokenAPI {
+  token: string;
+}
