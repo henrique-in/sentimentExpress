@@ -40,8 +40,6 @@ export function HomeScreen() {
     setText('');
   };
 
-  console.log(text);
-
   return (
     <View style={styles.container}>
       <ScrollView
